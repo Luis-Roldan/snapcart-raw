@@ -27,7 +27,7 @@ jobs:
   # ── Job 2: Test ─────────────────────────────────────────────
   test:
     runs-on: ubuntu-latest
-    # needs: [lint]
+    needs: [lint]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -38,7 +38,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        # ADDED FLAG HERE TOO
+        
         run: npm install --legacy-peer-deps
 
       - name: Build the app
@@ -56,7 +56,7 @@ jobs:
   # ── Job 3: Build and Push ────────────────────────────────────
   build-and-push:
     runs-on: ubuntu-latest
-    # needs: [test]
+    needs: [test]
     permissions:
       contents: read
       packages: write
