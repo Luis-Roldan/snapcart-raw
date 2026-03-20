@@ -1,10 +1,10 @@
 import js from "@eslint/js";
-import globals from "globals";
 import reactPlugin from "eslint-plugin-react";
+import globals from "globals";
 
 export default [
 	{
-		ignores: [".next/**/*", "node_modules/**/*", "dist/**/*", "out/**/*"],
+		ignores: [".next/**/*", "node_modules/**/*", "dist/**/*"],
 	},
 	js.configs.recommended,
 	{
@@ -25,15 +25,8 @@ export default [
 			},
 		},
 		rules: {
-			"react/jsx-uses-react": "error",
-			"react/jsx-uses-vars": "error",
+			"react/react-in-jsx-scope": "off",
 			"no-unused-vars": "warn",
-			"no-undef": "error",
-		},
-		settings: {
-			react: {
-				version: "detect",
-			},
 		},
 	},
 ];
